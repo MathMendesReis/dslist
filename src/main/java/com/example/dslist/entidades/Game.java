@@ -2,9 +2,27 @@ package com.example.dslist.entidades;
 
 import java.util.Objects;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.GenerationType;
+
+
+
+
+@Entity
+// A ANOTATION ENTITY TORNA A CLASSE EQUIVALENTE A AUMA TABELA SQL
+@Table(name = "tb_game")
 public class Game {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private long id;
     private String title;
+    @Column(name="game_year")
     private String year;
     private String genre;
     private String platform;
@@ -79,18 +97,15 @@ public class Game {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if(this == obj){
-            return true;
-        }
-        if(this == null){
-            return false;
-        }
-        if(getClass() != obj.getClass()){
-            return false;
-        }
-        Game other = (Game) obj;
-        return Objects.equals(id, other.id);
-    }
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Game other = (Game) obj;
+		return Objects.equals(id, other.id);
+	}
     
 }
