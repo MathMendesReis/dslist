@@ -1,4 +1,4 @@
-package com.example.dslist.entidades;
+package com.example.dslist.entidades.game;
 
 
 import java.util.Objects;
